@@ -28,6 +28,7 @@ sidebar: auto
 ## Git
 
 * [Resolving: Push declined due to email privacy restrictions](./git/1.md)
+* [Get latest tag on git](./git/2.md)
 
 ## Python
 

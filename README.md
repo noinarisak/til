@@ -29,6 +29,7 @@ sidebar: auto
 
 * [Resolving: Push declined due to email privacy restrictions](./git/1.md)
 * [Get latest tag on git](./git/2.md)
+* [Untrack files already added to git repository based on .gitignore](./git/3.md)
 
 ## Python
 

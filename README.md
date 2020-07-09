@@ -1,3 +1,3 @@
 # Today I Learned by Noi
 
-My TIL micro blog driven by VuePress. :smiley:
+My TIL micro blog driven by VuePress. Check it [out](https://noinarisak.github.io/tilx/). :smiley:

@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/tilx/',
+  base: '/til/',
   title: 'Today I Learned by Noi',
   description: 'Collection of my TIL.',
   themeConfig: {

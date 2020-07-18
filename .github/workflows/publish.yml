@@ -20,6 +20,7 @@ jobs:
           node-version: '10.10'
       - name: Build VuePress Assets
         run: |
+          yarn install
           yarn run docs:build
       - name: Check GitHub Pages Status
         uses: crazy-max/ghaction-github-status@v1

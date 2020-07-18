@@ -1,0 +1,35 @@
+# Deploy/Publish to GH-Pages.
+name: Publish-Website
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use NodeJS 10.10
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.10'
+      - name: Build VuePress Assets
+        run: |
+          yarn run docs:build
+      - name: Check GitHub Pages Status
+        uses: crazy-max/ghaction-github-status@v1
+        with:
+          pages_threshold: major_outage
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: docs/.vuepress/dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

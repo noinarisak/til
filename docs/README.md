@@ -39,3 +39,7 @@ sidebar: auto
 ## Money
 
 * [Rules for money](./money/1.md)
+
+## Life
+
+* [Essentialism](./life/1.md)

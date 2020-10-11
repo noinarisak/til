@@ -44,3 +44,4 @@ sidebar: auto
 
 * [Essentialism](./life/1.md)
 * [Atomic Habits](./life/2.md)
+* [Stoicism in 12 Lesson](./life/3.md)

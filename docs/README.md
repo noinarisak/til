@@ -43,3 +43,4 @@ sidebar: auto
 ## Life
 
 * [Essentialism](./life/1.md)
+* [Atomic Habits](./life/2.md)

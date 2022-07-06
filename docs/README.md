@@ -24,6 +24,7 @@ sidebar: auto
 ## Engineering
 
 * [Rules of thumb for a 1x developer](./engineering/1.md)
+* [The Grug Brained Developer](./engineering/2.md)
 
 ## Git
 

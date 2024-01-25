@@ -3,6 +3,9 @@
 # abort on errors
 set -e
 
+# Workaround base https://bit.ly/3UeizDx.
+export NODE_OPTIONS=--openssl-legacy-provider
+
 # build
 yarn run docs:build
 

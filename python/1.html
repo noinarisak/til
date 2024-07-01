@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Switch statement the pythonic way | Today I Learned by Noi</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="Collection of my TIL.">
+    <link rel="preload" href="/til/assets/css/0.styles.ade99d04.css" as="style"><link rel="preload" href="/til/assets/js/app.1286f752.js" as="script"><link rel="preload" href="/til/assets/js/2.91661087.js" as="script"><link rel="preload" href="/til/assets/js/31.73de9fd8.js" as="script"><link rel="prefetch" href="/til/assets/js/10.03adac79.js"><link rel="prefetch" href="/til/assets/js/11.cf0599f2.js"><link rel="prefetch" href="/til/assets/js/12.df08b387.js"><link rel="prefetch" href="/til/assets/js/13.8f34fee8.js"><link rel="prefetch" href="/til/assets/js/14.33c0640a.js"><link rel="prefetch" href="/til/assets/js/15.8b1738b9.js"><link rel="prefetch" href="/til/assets/js/16.a2ea19ee.js"><link rel="prefetch" href="/til/assets/js/17.018ae96d.js"><link rel="prefetch" href="/til/assets/js/18.b992d3c8.js"><link rel="prefetch" href="/til/assets/js/19.9667d632.js"><link rel="prefetch" href="/til/assets/js/20.236fe30f.js"><link rel="prefetch" href="/til/assets/js/21.196e28f3.js"><link rel="prefetch" href="/til/assets/js/22.caf3fea9.js"><link rel="prefetch" href="/til/assets/js/23.75dfa7cc.js"><link rel="prefetch" href="/til/assets/js/24.03274223.js"><link rel="prefetch" href="/til/assets/js/25.f2b2414e.js"><link rel="prefetch" href="/til/assets/js/26.9c3f8382.js"><link rel="prefetch" href="/til/assets/js/27.74088dc5.js"><link rel="prefetch" href="/til/assets/js/28.814e6c2c.js"><link rel="prefetch" href="/til/assets/js/29.653baed0.js"><link rel="prefetch" href="/til/assets/js/3.4f8cdbf8.js"><link rel="prefetch" href="/til/assets/js/30.c55ae1f0.js"><link rel="prefetch" href="/til/assets/js/32.dfcf4a35.js"><link rel="prefetch" href="/til/assets/js/33.41ca52db.js"><link rel="prefetch" href="/til/assets/js/4.5a87e61e.js"><link rel="prefetch" href="/til/assets/js/5.45390f9e.js"><link rel="prefetch" href="/til/assets/js/6.920f6e03.js"><link rel="prefetch" href="/til/assets/js/7.d4c03d40.js"><link rel="prefetch" href="/til/assets/js/8.b4b110c2.js"><link rel="prefetch" href="/til/assets/js/9.d19fb8ff.js">
+    <link rel="stylesheet" href="/til/assets/css/0.styles.ade99d04.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/til/" class="home-link router-link-active"><!----> <span class="site-name">Today I Learned by Noi</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/til/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/til/about/" class="nav-link">
+  Me
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/til/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/til/about/" class="nav-link">
+  Me
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/til/" aria-current="page" class="sidebar-link">TIL...</a></li><li><a href="/til/about.html" class="sidebar-link">About Me</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="switch-statement-the-pythonic-way"><a href="#switch-statement-the-pythonic-way" class="header-anchor">#</a> Switch statement the pythonic way</h1> <p>Python does not have Switch statement, so If you got the following:</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">if</span> cond <span class="token operator">==</span> <span class="token string">'cond_a'</span><span class="token punctuation">:</span>
+    handle_a<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> cond <span class="token operator">==</span> &quot;cond_b'<span class="token punctuation">:</span>
+    handle_b<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    handle_default<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>Do this instead</p> <div class="language-python extra-class"><pre class="language-python"><code>func_dict <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'cond_a'</span><span class="token punctuation">:</span> handle_a<span class="token punctuation">,</span>
+    <span class="token string">'cond_b'</span><span class="token punctuation">:</span> handle_b<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Example call</span>
+cond <span class="token operator">=</span> <span class="token string">'cond_a'</span>
+func_dict<span class="token punctuation">[</span>cond<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># If you 'cond' exist, KeyError will raise for 'else:' statement.</span>
+
+<span class="token comment"># Workaround is to use the get() method and the handle_default() is address if 'cond' is not found.</span>
+func_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span>cond<span class="token punctuation">,</span> handle_default<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>Complete example but with issues for production-grade performance</p> <div class="language-python extra-class"><pre class="language-python"><code>
+<span class="token keyword">def</span> <span class="token function">dispatch_dict</span><span class="token punctuation">(</span>operator<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">'add'</span><span class="token punctuation">:</span> lamba<span class="token punctuation">:</span> x <span class="token operator">+</span> y<span class="token punctuation">,</span>
+        <span class="token string">'sub'</span><span class="token punctuation">:</span> lamba<span class="token punctuation">:</span> x <span class="token operator">-</span> y<span class="token punctuation">,</span>
+        <span class="token string">'mul'</span><span class="token punctuation">:</span> lamba<span class="token punctuation">:</span> x <span class="token operator">*</span> y<span class="token punctuation">,</span>
+        <span class="token string">'div'</span><span class="token punctuation">:</span> lamba<span class="token punctuation">:</span> x <span class="token operator">/</span> y<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>operator<span class="token punctuation">,</span> lamba<span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>Non-lambda appoarch</p> <div class="language-python extra-class"><pre class="language-python"><code>
+<span class="token keyword">def</span> <span class="token function">go</span><span class="token punctuation">(</span>operator<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  calculator_actions <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string">'add'</span><span class="token punctuation">:</span> do_add<span class="token punctuation">,</span>
+      <span class="token string">'sub'</span><span class="token punctuation">:</span> do_subtract<span class="token punctuation">,</span>
+      <span class="token string">'mul'</span><span class="token punctuation">:</span> do_multiple<span class="token punctuation">,</span>
+      <span class="token string">'div'</span><span class="token punctuation">:</span> do_divide<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> operator <span class="token keyword">in</span> calculator_actions<span class="token punctuation">:</span>
+      x <span class="token operator">=</span> <span class="token number">4</span>
+      y <span class="token operator">=</span> <span class="token number">2</span>
+      <span class="token builtin">sum</span> <span class="token operator">=</span> calculator_actions<span class="token punctuation">[</span>operator<span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">do_add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y
+
+<span class="token keyword">def</span> <span class="token function">do_subtract</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> x <span class="token operator">-</span> y
+
+<span class="token keyword">def</span> <span class="token function">do_multiple</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> x <span class="token operator">*</span> y
+
+<span class="token keyword">def</span> <span class="token function">do_divide</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> x <span class="token operator">/</span> y
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+  go<span class="token punctuation">(</span>operator<span class="token operator">=</span><span class="token string">'add'</span><span class="token punctuation">)</span>
+  go<span class="token punctuation">(</span>operator<span class="token operator">=</span><span class="token string">'sub'</span><span class="token punctuation">)</span>
+  go<span class="token punctuation">(</span>operator<span class="token operator">=</span><span class="token string">'mul'</span><span class="token punctuation">)</span>
+  go<span class="token punctuation">(</span>operator<span class="token operator">=</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+
+</code></pre></div><h2 id="key-takeway"><a href="#key-takeway" class="header-anchor">#</a> Key-Takeway:</h2> <ul><li>This techinique has an issue for production-grade. <code>dispatch_dict</code> is created in memory with lambdas opcode lookup.</li> <li>For production-grade, create the dictionary as constant and then reference it when the function is called.</li> <li>Rule of thumb, if <code>if-elif-else</code> goes over 3 conditions this switch statement as function could make your code Pythonic but understand the performance impact.</li></ul> <h2 id="reference"><a href="#reference" class="header-anchor">#</a> Reference:</h2> <p><a href="https://www.youtube.com/watch?v=gllUwQnYVww" target="_blank" rel="noopener noreferrer">YouTube - Real Python<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/til/assets/js/app.1286f752.js" defer></script><script src="/til/assets/js/2.91661087.js" defer></script><script src="/til/assets/js/31.73de9fd8.js" defer></script>
+  </body>
+</html>

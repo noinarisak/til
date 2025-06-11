@@ -4,7 +4,7 @@ sidebar: auto
 
 # TIL...
 
-"***Today I Learned***": a collection of notes, tips and tricks, concepts/models and philosophy, and stuff I learn from day to day working as Developer and DevOps Engineer.
+"***Today I Learned***": a collection of notes, tips and tricks, concepts/models and philosophy, and stuff I learn from day to day while working as a Developer and DevOps Engineer.
 
 [[toc]]
 
